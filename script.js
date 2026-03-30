@@ -23,3 +23,28 @@
     avatar.addEventListener('mouseleave', () => avatar.style.transform = 'scale(1)');
     avatar.style.transition = 'transform 0.3s ease';
   }
+
+
+  // View More functionality for projects
+document.addEventListener('DOMContentLoaded', function() {
+  const viewMoreBtn = document.getElementById('viewMoreBtn');
+  const projectsGrid = document.getElementById('projectsGrid');
+  
+  if (viewMoreBtn && projectsGrid) {
+    let expanded = false;
+    
+    viewMoreBtn.addEventListener('click', function() {
+      expanded = !expanded;
+      
+      if (expanded) {
+        projectsGrid.classList.add('expanded');
+        viewMoreBtn.classList.add('active');
+        viewMoreBtn.querySelector('span').textContent = 'Show Less';
+      } else {
+        projectsGrid.classList.remove('expanded');
+        viewMoreBtn.classList.remove('active');
+        viewMoreBtn.querySelector('span').textContent = 'View More Projects';
+      }
+    });
+  }
+});
